@@ -29,7 +29,7 @@ app.get('/books/:id', async (req, res) => {
     const object = await Book.findById(id);
     res.json({ "message": "object found", object });
 });
-app.put('update/:id', async (req, res) => {
+app.put('books/:id', async (req, res) => {
     const id = req.params.id
     const object = req.body
     const updatedBook = await Book.findByIdAndUpdate(id, object, { new: true });
@@ -39,7 +39,7 @@ app.put('update/:id', async (req, res) => {
     res.status(200).send(updatedBook);
 });
 
-app.delete('delete/:id', async (req, res) => {
+app.delete('book/:id', async (req, res) => {
     const id = req.params.id
     const DeletedBook = await Book.findByIdAndDelete(id);
     if (DeletedBook === null) {
